@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Load stored data
     const storedLastPeriod = localStorage.getItem('lastPeriod');
     const storedCycleLength = localStorage.getItem('cycleLength');
     const storedNotifyMe = localStorage.getItem('notifyMe');
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('notifyMe').checked = true;
     }
 
-    // Calculate and display the next period if data is available
     if (storedLastPeriod && storedCycleLength) {
         calculateNextPeriod(new Date(storedLastPeriod), parseInt(storedCycleLength, 10));
     }
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.getElementById('periodForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get the last period date and cycle length from the input
     const lastPeriodDate = new Date(document.getElementById('lastPeriod').value);
     const cycleLength = parseInt(document.getElementById('cycleLength').value, 10);
     const notifyMe = document.getElementById('notifyMe').checked;
@@ -33,15 +30,12 @@ document.getElementById('periodForm').addEventListener('submit', function(event)
         return;
     }
 
-    // Store the data in local storage
     localStorage.setItem('lastPeriod', document.getElementById('lastPeriod').value);
     localStorage.setItem('cycleLength', cycleLength);
     localStorage.setItem('notifyMe', notifyMe);
 
-    // Calculate and display the next period date
     calculateNextPeriod(lastPeriodDate, cycleLength);
 
-    // Set notification if enabled
     if (notifyMe) {
         setNotification(lastPeriodDate, cycleLength);
     }
@@ -51,7 +45,6 @@ function calculateNextPeriod(lastPeriodDate, cycleLength) {
     const nextPeriodDate = new Date(lastPeriodDate);
     nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
 
-    // Display the next period date
     document.getElementById('result').innerText = `Your next period is expected on: ${nextPeriodDate.toDateString()}`;
 }
 
@@ -62,10 +55,8 @@ function setNotification(lastPeriodDate, cycleLength) {
                 const nextPeriodDate = new Date(lastPeriodDate);
                 nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
 
-                // Calculate the time remaining until the next period
                 const timeUntilNextPeriod = nextPeriodDate.getTime() - Date.now();
                 
-                // Register a service worker to handle notifications
                 navigator.serviceWorker.register('/sw.js').then(function(registration) {
                     registration.showNotification('Period Tracker', {
                         body: `Your next period is expected on: ${nextPeriodDate.toDateString()}`,
@@ -73,7 +64,6 @@ function setNotification(lastPeriodDate, cycleLength) {
                     });
                 });
 
-                // Schedule the notification
                 setTimeout(() => {
                     navigator.serviceWorker.getRegistration().then(function(registration) {
                         registration.showNotification('Period Tracker', {
