@@ -22,5 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const user = result.user;
                 console.log(user);
                 // Redirect to the appropriate page after successful sign-in
-                window.location.href = "
-                    
+                window.location.href = "https://www.example.com/dashboard"; // Replace with your desired redirect URL
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    });
+});
