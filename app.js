@@ -3,10 +3,8 @@ const firebaseConfig = {
     apiKey: "AIzaSyAF6hzh5NZNO4JWs77WYsNmQBVGsGuZfzc",
     authDomain: "track-my-period.firebaseapp.com",
     projectId: "track-my-period",
-    storageBucket: "track-my-period.appspot.com",
     messagingSenderId: "963629924186",
-    appId: "1:963629924186:web:de3d1cfc765180b76e3d63",
-    measurementId: "G-S99Z27G8WF"
+    appId: "1:963629924186:web:de3d1cfc765180b76e3d63"
 };
 
 // Initialize Firebase
