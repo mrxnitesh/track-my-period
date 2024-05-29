@@ -1,42 +1,45 @@
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    background-color: #f0f0f0;
 }
 
-#app {
-    max-width: 600px;
-    margin: 0 auto;
+.container {
+    background: white;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
 }
 
-#login-container {
+h1 {
     margin-bottom: 20px;
 }
 
-#google-login-btn {
-    background-color: #4285F4;
+label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-#google-login-btn:hover {
-    background-color: #357ae8;
+button:hover {
+    background-color: #218838;
 }
 
-#period-history {
-    border-top: 2px solid #ccc;
-    padding-top: 20px;
-}
-
-#history-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#history-list li {
-    margin-bottom: 10px;
+#result {
+    margin-top: 20px;
 }
