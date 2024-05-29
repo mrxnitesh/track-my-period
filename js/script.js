@@ -57,7 +57,7 @@ function setNotification(lastPeriodDate, cycleLength) {
 
                 const timeUntilNextPeriod = nextPeriodDate.getTime() - Date.now();
                 
-                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
                     registration.showNotification('Period Tracker', {
                         body: `Your next period is expected on: ${nextPeriodDate.toDateString()}`,
                         tag: 'period-tracker'

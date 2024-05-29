@@ -5,7 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('https://mrxnitesh.github.io/track-my-period/pic1.jpg');
+    background-image: url('../images/pic1.jpg');
     background-size: cover;
     background-position: center;
     animation: backgroundAnimation 10s infinite alternate;
