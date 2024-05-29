@@ -16,29 +16,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (storedLastPeriod && storedCycleLength) {
         calculateNextPeriod(new Date(storedLastPeriod), parseInt(storedCycleLength, 10));
     }
-});
 
-document.getElementById('periodForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    document.getElementById('periodForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    const lastPeriodDate = new Date(document.getElementById('lastPeriod').value);
-    const cycleLength = parseInt(document.getElementById('cycleLength').value, 10);
-    const notifyMe = document.getElementById('notifyMe').checked;
+        const lastPeriodDate = new Date(document.getElementById('lastPeriod').value);
+        const cycleLength = parseInt(document.getElementById('cycleLength').value, 10);
+        const notifyMe = document.getElementById('notifyMe').checked;
 
-    if (isNaN(lastPeriodDate.getTime()) || isNaN(cycleLength) || cycleLength <= 0) {
-        document.getElementById('result').innerText = 'Please enter valid data.';
-        return;
-    }
+        if (isNaN(lastPeriodDate.getTime()) || isNaN(cycleLength) || cycleLength <= 0) {
+            document.getElementById('result').innerText = 'Please enter valid data.';
+            return;
+        }
 
-    localStorage.setItem('lastPeriod', document.getElementById('lastPeriod').value);
-    localStorage.setItem('cycleLength', cycleLength);
-    localStorage.setItem('notifyMe', notifyMe);
+        localStorage.setItem('lastPeriod', document.getElementById('lastPeriod').value);
+        localStorage.setItem('cycleLength', cycleLength);
+        localStorage.setItem('notifyMe', notifyMe);
 
-    calculateNextPeriod(lastPeriodDate, cycleLength);
+        calculateNextPeriod(lastPeriodDate, cycleLength);
 
-    if (notifyMe) {
-        setNotification(lastPeriodDate, cycleLength);
-    }
+        if (notifyMe) {
+            setNotification(lastPeriodDate, cycleLength);
+        }
+    });
 });
 
 function calculateNextPeriod(lastPeriodDate, cycleLength) {
