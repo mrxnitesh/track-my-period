@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container blur-background">
         <h1>Track My Period</h1>
         <form id="periodForm">
-            <label for="lastPeriod">Last Period Date:</label>
-            <input type="date" id="lastPeriod" required>
-            <label for="cycleLength">Cycle Length (days):</label>
-            <input type="number" id="cycleLength" value="28" required>
-            <label for="notifyMe">
-                <input type="checkbox" id="notifyMe">
-                Notify me of the next period
-            </label>
+            <div class="input-group">
+                <label for="lastPeriod">Last Period Date:</label>
+                <input type="date" id="lastPeriod" required>
+            </div>
+            <div class="input-group">
+                <label for="cycleLength">Cycle Length (days):</label>
+                <input type="number" id="cycleLength" value="28" required>
+            </div>
+            <div class="input-group">
+                <label for="notifyMe">
+                    <input type="checkbox" id="notifyMe">
+                    Notify me of the next period
+                </label>
+            </div>
             <button type="submit">Calculate Next Period</button>
         </form>
         <div id="result"></div>
